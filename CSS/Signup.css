@@ -1,0 +1,295 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    /* border: 2px solid red; */
+}
+
+.secondContainer{
+    display: flex;
+    flex-direction: row;
+    height: 90%;
+    width: 55%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin-left:23%;
+    margin-top: 4%;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    width: 55%;
+    /* border:2px solid black; */
+}
+
+.logo{
+    display: flex;
+    height:10%;
+    width:50%;
+    align-items:flex-end;
+
+    /* border:1px solid blue; */
+    margin-left: 8%;
+}
+
+.create{
+    height: 10%;
+    width:80%;
+    font-size: 1.6vw;
+    /* border:2px solid green; */
+    margin-left:8%;
+}
+
+.continue{
+    height: 10%;
+    width:80%;
+    font-size: 1.1vw;
+    /* border:2px solid yellowgreen; */
+    margin-left:8%;
+}
+
+.name{
+    display:flex;
+    flex-direction:row;
+    height:20%;
+    width:92%;
+    /* border: 1px solid red;  */
+    margin-left:8%;
+}
+
+.fName{
+    display: flex;
+    flex-direction:column;
+    height:100%;
+    width:50%;
+    /* border: 1px solid blue;  */
+
+}
+.lName{
+    display: flex;
+    /* flex-direction:column; */
+    height:100%;
+    width:50%;
+    /* border: 1px solid green;  */
+
+}
+.dummy {
+    /* border:1px solid rgb(65, 90, 65); */
+    height:30%;
+    /* display:none; */
+
+}
+
+#first_name, #last_name, #email, #password, #cpassword:focus {
+
+   border:1px solid blue;
+}
+
+#first_name{
+    border:1px solid grey; 
+    border-radius:4px;
+    height:45%;
+    width:96%; 
+}
+
+#last_name{
+    border:1px solid grey; 
+    border-radius:4px;
+    height:44.5%;
+    width:100%; 
+}
+.helper-text{
+    display:none;
+}
+
+.userName{
+    height:12%;
+    width: 92%;
+    /* margin-top: 10%; */
+    /* border:1px solid blue; */
+    margin-left:8%;
+    margin-bottom: 2%;
+}
+#email{
+    height: 70%;
+    border:1px solid grey;
+    border-radius:4px;
+    /* margin-bottom:23%; */
+}
+
+.userWay{
+    margin-left: 8%;
+}
+.userWay2{
+    margin-left:8%;
+    color:blue;
+}
+.password{
+    /* display:flex;
+    flex-direction:row;
+    height:10%;
+    width:92%; */
+    /* border: 1px solid red;  */
+    margin-left:8%;
+    margin-top: 5%;
+    display:flex;
+    flex-direction:row;
+    height:20%;
+    width:92%;
+    /* border: 1px solid red;  */
+    /* margin-left:8%; */
+}
+
+#password{
+    /* height: 70%;
+    border:1px solid grey; 
+    border-radius:4px; */
+    /* margin-top: 5%; */
+
+    border:1px solid grey; 
+    border-radius:4px;
+    height:45%;
+    width:96%; 
+
+}
+
+#cpassword{
+    /* height: 70%;
+    border:1px solid grey; 
+    border-radius:4px; */
+    /* margin-top: 5%; */
+
+    border:1px solid grey; 
+    border-radius:4px;
+    height:45%;
+    width:100%; 
+}
+.dummy2{
+    /* display:none; */
+    height:30%;
+    /* border : 1px solid red;  */
+
+}
+
+.pass{
+    display: flex;
+    /* height:100%; */
+    /* width:50%; */
+    /* border: 1px solid green;  */
+
+    display: flex;
+    flex-direction:column;
+    height:100%;
+    width:50%;
+    /* border: 1px solid blue;  */
+
+}
+.confirm{
+    display: flex;
+    /* height:100%; */
+    /* width:50%; */
+    /* border: 1px solid green;  */
+
+    display: flex;
+    flex-direction:column;
+    height:100%;
+    width:50%;
+    /* border: 1px solid blue;  */
+}
+
+.passWay{
+    margin-left: 8%;
+    font-size: 1vw;
+}
+
+.showPassword{
+    height: 15%;
+    width:92%;
+    /* border:2px solid green;  */
+    margin-left:8%;
+}
+
+.signButton{
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    width:92%;
+    /* border:2px solid green;  */
+    margin-left:8%;
+
+}
+
+.instead{
+    /* border:2px solid red;  */
+    height:50%;
+    width:35%;
+    color:blue;
+    justify-content: content;
+    align-items: center;
+    align-content: center;
+}
+
+.nextButton{
+    /* border:2px solid red;  */
+    height:50%;
+    /* width:35%; */
+    color:blue;
+    justify-content: content;
+    align-items: center;
+    align-content: center;
+    margin-left: 40%;
+
+}
+
+.imageData{
+    display: flex;
+    flex-direction:column;
+    height: 100%;
+    width: 45%;
+    /* border:2px solid yellow; */
+}
+
+.Googlelogo{
+    display: flex;
+    height: 40%;
+    width: 60%;
+    /* border:1px solid red; */
+    margin-top: 38%;
+    margin-left: 20%;
+}
+
+.Googledescription{
+    display: flex;
+    height: 10%;
+    width: 60%;
+    /* border:2px solid red; */
+    margin-left: 30%;
+    /* margin-top: 38%; */
+
+}
+
+.thirdContainer{
+    display: flex;
+    height: 7%;
+    width:50%;
+    /* border:2px solid blue; */
+    margin-left:25%;
+}
+
+.section1{
+    width:50%;
+    /* border:1px solid red; */
+    color:blue;
+}
+
+.section2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:35%;
+    /* border:1px solid red; */
+    margin-left:15%;
+}
