@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Signup.css">
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+    integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="
+    crossorigin="anonymous"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="/JS/Create.js"></script> -->
+    <script src="/JS/Signup2.js"></script>
+    <!-- <script src="/JS/Create3.js"></script> -->
+    <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
+  
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js" integrity="sha512-lTLt+W7MrmDfKam+r3D2LURu0F47a3QaW5nF0c6Hl0JDZ57ruei+ovbg7BrZ+0bjVJ5YgzsAWE+RreERbpPE1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+        
+
+    <title>Create your Google Account</title>
+</head>
+<body>
+    <div class ="mainContainer">
+        <div class="secondContainer">
+            <div class="details">
+                <div class="logo">
+                    <div class="logo1"><img src="/Assets/SVGs/google.svg" class="logo1"></div>
+                </div>
+                <div class="create">Create your Google Account</div>
+                <div class="continue">to continue to Gmail</div>
+                <div class="name">
+                    <div class="fName">
+                        <input placeholder="First Name" id="first_name" type="text" class="validate">
+                        <div class="dummy"><span class="helper-text" id="hname" data-error="wrong">Incorrect Name</span></div>
+                        <!-- <label for="first_name">First Name</label> -->
+                    </div>
+                    <div class="lName">
+                        <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                        <span class="helper-text" data-error="wrong"></span>
+
+                    </div>
+                </div>
+                <div class="userName">
+                    <input placeholder="Username" id="email" type="email" class="validate"> 
+                    <span class="helper-text" id="wemail" data-error="Incorrect Username">Incorrect Username</span>
+                    
+                </div>
+                <div class="userWay">You can use letters,numbers & periods</div>
+                <div class="userWay2">Use my current email address instead</div>
+                <div class="password">
+                    <div class="pass">
+                        <input placeholder="Password" id="password" type="password" class="validate">
+                        <div class="dummy2"><span class="helper-text" id="wpass" data-error="wrong">Invalid Password</span></div>
+                    </div>
+                    <div class="confirm">
+                        <input placeholder="Confirm" id="cpassword" type="password" class="validate">
+                    </div>
+                </div>
+
+                <div class="passWay">Use 8 or more characters with a mix of letters, numbers &<br>
+                symbols</div>
+
+                <div class="showPassword">
+                    <input type="checkbox" />
+                     <span>Show password</span>
+                </div>
+
+                <div class="signButton">
+                    <div class="instead">Sign in instead</div>
+                    <div class="nextButton"> <a class="waves-effect waves-light btn blue" id="button">Next</a></div>
+                </div>
+            </div>
+
+
+            <div class="imageData">
+                <div class="Googlelogo">
+                    <img src="/Assets/SVGs/account.svg">
+                </div>
+                <div class="Googledescription">One Account. All of Google<br>
+                working for you</div>
+
+            </div>
+        </div>
+
+
+        <div class="thirdContainer">
+            <div class="section1">
+                <select>
+                    <option value="United Kingdom" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+               
+            </div>
+            <div class="section2">
+                <div class="items">Help</div>
+                <div class="items">Privacy</div>
+                <div class="items">Terms</div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    
+</body>
+</html>
