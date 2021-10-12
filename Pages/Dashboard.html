@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="/JS/modal.js"></script> -->
+
+    <title>Dashboard FundooNotes</title>
+</head>
+
+<body>
+    <div class="main-container" id="main-container">
+        <div class="header">
+            <div class="left-header">
+                <div class="menu">
+
+                    <svg viewBox="0 0 24 24" class="val">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                    </svg>
+                </div>
+                <div class="logo">
+                    <img class="logo1" src="/Assets/Images/keep_2020q4_48dp.png">
+                </div>
+                <div class="keep">Keep</div>
+            </div>
+
+
+            <div class="search-bar">
+                <div class="search-icon">
+                    <img class="val" src="/assets/SVGs/search.svg">
+                </div>
+                <div class="search-input">
+                    <input type="text" class="search-input1" id="search-input" placeholder="Search">
+                </div>
+            </div>
+
+            
+            <div class="mid-header">
+                <div class="refresh">
+                    <i class="material-icons">refresh</i>
+                </div>
+                <div class="list">
+                    <i class="material-icons">list</i>
+                </div>
+                <div class="settings">
+                    <i class="material-icons">settings</i>
+                </div>
+            </div>
+
+            <div class="right-header">
+                <div class="google-aps">
+                    <svg class="gb_Ve" viewBox="0 0 24 24">
+                        <path
+                            d="M6 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6 12c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-6 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0-6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm4-8c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2zm-4 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+                    </svg>
+                </div>
+                <div class="profile">
+                    <img class="profile-img" src="/Assets/Images/profile.jpg">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="takeNote1" id="takeNote1">
+            <div class="notes">
+                <input class="notes1" id="notes1" placeholder="Take a Note ..." type="text">
+            </div>
+            <div class="icons1">
+                <div class="new-list">
+                    <i class="material-icons">check_box</i>
+                </div>
+                <div class="new-draw">
+                    <i class="material-icons">brush</i>
+                </div>
+                <div class="new-image">
+                    <i class="material-icons">insert_photo</i>
+                </div>
+            </div>
+        </div>
+
+        <div class="takeNote2" id="takeNote2">
+            <div class="title">
+                <div class="title1">
+                    <input class="title2" id="title2" placeholder="Title" type="text" autocomplete="off">
+                </div>
+                <div class="title-icon"></div>
+            </div>
+            <div class="tnotes">
+                <textarea class="tnotes1" id="title-notes" placeholder="Take a Note ..."></textarea>
+            </div>
+            <div class="owners" id="owners">
+                <!-- asdfgdsa -->
+            </div>
+            <div class="ticons1">
+                <div class="ticons">
+                    <div class="reminder">
+                        <i class="material-icons" id ="timeReminder">notifications</i>
+                    </div>
+                    <div class="collab">
+                        <i class="material-icons" id="collab">person_add</i>
+                    </div>
+                    <div class="colors">
+                        <i class="material-icons" id="color-popup">color_lens</i>
+                    </div>
+                    <div class="add-image">
+                        <i class="material-icons">insert_photo</i>
+                    </div>
+                    <div class="archive">
+                        <i class="material-icons" id="archive">archive</i>
+                    </div>
+                    <div class="more">
+                        <i class="material-icons">more_vert</i>
+
+                    </div>
+
+                </div>
+
+                <div class="close">
+                    <button type="button" class="close-button" id="close-button">Close</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="timePopper">
+
+            <div class="pickTime">Pick Date and Time</div>
+            <div class ="datepicker1"> 
+                <input type="date" class="datepicker" id="datepicker">
+            </div>
+
+            <div class="timepicker1">
+                <input type="time" class="timepicker" id="timepicker">  
+            </div>
+
+            <div class="timeButton">
+                <button type="button" class="saveTime" id="saveTime" >Save</button>
+            </div>
+
+        </div>
+       
+
+
+
+
+        <div class="Collaborator" id="collabContainer">
+            <div class="collab-head">Collaborators</div>
+            <div class="collab-email">
+                <div class="ce-icon">
+                    <img class="profile-img" src="/Assets/Images/profile.jpg">
+                </div>
+                <div class="ce-owner">
+                    <p><span style="font-weight: bold;">Vijay Krishna</span>(Owner)
+                        <br>pvijaykrishna549@gmail.com
+                    </p>
+                </div>
+              
+            </div>
+
+            <div class="collab-add">
+                <div class="collab-addp">
+                    <i class="material-icons" id="collab">person_add</i>
+                </div>
+                <div class="collab-addInput">
+                    <input type="text" id="collabInput" placeholder="Person or email to share with" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="collab-buttons">
+                <button type="button" id="cancelButton">Cancel</button>
+                <button type="button" id="saveButton">Save</button>
+
+                </button>
+            </div>
+        </div>
+
+        <div class = "colt"></div>
+
+
+        <div class="popup" id="popup">
+            <div class="popuptext" id="myPopup">
+               
+            </div>
+        </div>
+
+        <div class="flex-container" id="flex-container">
+            <!-- <div class="flex1"></div> -->
+            
+        </div>
+        <div class="modal-container">
+            <div class="modal">
+            <div class="modal-head">Pin your important notes to the top</div>
+            <div class="modal-input" id="modal-input"> 
+                <input name="title" class="sub-note2" id="modal-title"  value = ${note.id} autocomplete="off"> 
+                 </input>
+                </div>
+         
+                 <div class="modal-text">
+                    <textarea class="content" id="modal-notes" placeholder="Take a note..." autocomplete="off"></textarea>
+                  </div> 
+                  
+           <div class="modal-iconContainer">
+         
+            <div class ="modal-icons">
+         
+               <div class="reminder">
+               <i class="material-icons">notifications</i>
+           </div>
+           <div class="collab">
+               <i class="material-icons" id="collab">person_add</i>
+           </div>
+           <div class="colors">
+               <i class="material-icons" id="color-popup1">color_lens</i>
+           </div>
+           <div class="add-image">
+               <i class="material-icons">insert_photo</i>
+           </div>
+           <div class="archive">
+               <i class="material-icons" id="archive">archive</i>
+           </div>
+           <div class="more">
+               <i class="material-icons">more_vert</i>   
+           </div>
+           
+         
+               </div>
+         
+               <div class="modal-close">
+               <button type="button" class="mclose-button" id="mclose-button">Close</button>
+               </div>
+               
+           </div>
+            </div>
+            </div>
+         
+
+
+
+
+ 
+
+
+        <div class="shrink-sidebar" id="Shrink-sidebar">
+
+            <div class="shrink shrink-notes" id="shrink-notes">
+                <i class="material-icons">lightbulb</i>
+            </div>
+
+            <div class="shrink shrink-reminders" id="shrink-reminders">
+                <i class="material-icons">notifications</i>
+            </div>
+
+            <div class="shrink shrink-labels" id="shrink-labels">
+                <i class="material-icons">edit</i>
+            </div>
+
+            <div class="shrink shrink-archive" id="shrink-archive">
+                <i class="material-icons" id="archive2s">archive</i>
+            </div>
+
+            <div class="shrink shrink-trash" id="shrink-trash">
+                <i class="material-icons">delete</i>
+            </div>
+
+        </div>
+
+
+        <div class="expand-sidebar" id="expand-sidebar">
+
+            <div class="expand expand-notes" id="exnotes">
+                <div class="expand-notes1">
+                    <i class="material-icons">lightbulb</i>
+                </div>
+                <div class="enotes">Notes</div>
+            </div>
+
+            <div class="expand expand-reminders" id="expand-reminders">
+                <div class="expand-reminders1">
+                    <i class="material-icons">notifications</i>
+                </div>
+                <div class="ereminders">Reminders</div>
+            </div>
+
+            <div class="expand active expand-labels" id="expand-labels">
+                <div class="expand-labels1">
+                    <i class="material-icons">edit</i>
+                </div>
+                <div class="elabels">Edit labels</div>
+            </div>
+
+
+            <div class="expand expand-archive" id="archive2">
+                <div class="expand-archive1">
+                    <i class="material-icons" id="archive24">archive</i>
+                </div>
+                <div class="earchive">Archive</div>
+            </div>
+
+            <div class="expand expand-trash" id="trash2">
+                <div class="expand-trash1">
+                    <i class="material-icons">delete</i>
+                </div>
+                <div class="etrash">Trash</div>
+            </div>
+        </div>
+
+
+         
+
+ 
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="/CSS/Dashboard.css">
+    <link rel="stylesheet" href="/CSS/modal.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+        integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="
+        crossorigin="anonymous"> </script>
+    <!-- <script src="/JS/Dashboard.js"></script> -->
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    
+    <script src="/JS/Sidenav.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="/JS/modal.js"></script>
+    <!-- <script src="/JS/Dashboard2.js"></script> -->
+    <script src="/JS/Dashboard.js"></script>
+
+</body>
+
+</html>
