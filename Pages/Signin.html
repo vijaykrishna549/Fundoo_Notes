@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Signin.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg=="
+crossorigin="anonymous"> </script>
+    <script src="/JS/Signin.js"></script>
+    <script src="/JS/Signin.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Gmail sign-In</title>
+</head>
+<body>
+    <div class="main-container">
+
+        <div class="sign-container">
+            <div class="Glogo">
+                <img src="../assets/SVGs/image.svg">
+            </div>
+            <div class="Sign">Sign in</div>
+            <div class="Cont">to continue</div>
+
+            <div class="userName">
+               <div class="user1">
+                <input placeholder="Email" id="email" type="email" class="validate"> 
+                <span class="helper-text" id="wemail" data-error="Incorrect Username">Incorrect Username</span>
+               </div>
+                
+            </div>
+
+            <div class="pass">
+                <input placeholder="Password" id="password" type="password" class="validate">
+                <!-- <span class="helper-text" id= data-error="wrong">Invalid Password</span> -->
+                <span class="helper-text" id="wpass" data-error="wrong">Invalid Password</span>
+            </div>
+
+            <div class="forgot">Forgot email?</div>
+            <div class="learnMore">
+                <div class="item">Not your Computer? Use Guest mode to sign in privately</div>
+                <div class="item1">Learn more</div>
+        </div>
+        
+        <div class="footer-container2">
+            <div class="createAccount">Create Account</div>
+            <div class="nextButton">
+                <a class="waves-effect waves-light btn blue" id="button">Next</a>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
