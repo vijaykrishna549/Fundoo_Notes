@@ -29,6 +29,11 @@ window.addEventListener('DOMContentLoaded', function () {
     const Trash1 = document.querySelector("#trash2")
     const Archive1 = document.querySelector("#archive2")
     const Notes2 = document.querySelector("#exnotes")
+    
+    const expandSidebar = document.querySelector('.expand-sidebar')
+
+    const shrinkTrash = document.querySelector("#sds")
+
     const collabInput = document.querySelector("#collabInput")
     const Colt = document.querySelector('.colt')
     const Owners = document.querySelector('.owners')
@@ -182,6 +187,17 @@ window.addEventListener('DOMContentLoaded', function () {
     })
 
 
+//    if(screen.width <400){
+    shrinkTrash.addEventListener('click', function () {
+        console.log('shrin');
+        // expandSidebar.style.display = 'none';
+        // document.querySelector(".keep").innerHTML = "Trash";
+        // requirejs(['../JS/mappingNotes.js'], (mapArray) => {
+        //     mapArray.mapNotes('trash')
+        // })
+    })
+
+//    }
 
 
     Archive.addEventListener('click', function () {
@@ -383,12 +399,19 @@ window.addEventListener('DOMContentLoaded', function () {
         TakeNote2.style.display = "flex"
         NotesContainer.style.marginTop = "20%"
         TakeNote2.style.backgroundColor = "white"
+
+        if (screen.width <400){
+            NotesContainer.style.marginTop ="74%"
+        }
+        else if(screen.width <800 && screen.width >450){
+            NotesContainer.style.marginTop ="55%"
+        }
     })
 
 
 
     timeReminder.addEventListener('click', function () {
-        console.log('hello')
+        // console.log('hello')
         timePopper.style.display = "flex";
     })
 
@@ -420,6 +443,12 @@ window.addEventListener('DOMContentLoaded', function () {
         TakeNote2.style.display = 'none';
         CollabContainer.style.display = "block"
         NotesContainer.style.marginTop ="22%"
+        if (screen.width <400){
+            NotesContainer.style.marginTop ="80%"
+        }
+        else if(screen.width <800 && screen.width >450){
+            NotesContainer.style.marginTop ="60%"
+        }
     })
 
     CancelButton.addEventListener('click', function () {
