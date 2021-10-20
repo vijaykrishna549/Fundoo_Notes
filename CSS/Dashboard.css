@@ -300,7 +300,7 @@
     width:100%;
     background-color:inherit;
     border: 1px solid transparent;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .tnotes{
@@ -309,7 +309,7 @@
     width: 99%;
     background-color:inherit;
     background-color:inherit;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 
     /* border:1px solid transparent; */
 }
@@ -318,7 +318,7 @@
     font-size:1.2vw;
     font-family: Roboto,Arial,sans-serif;
     background-color: inherit;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 
     border:1px solid transparent;
 }
@@ -327,7 +327,7 @@
     display:flex;
     /* flex-direction:column; */
     position:absolute;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     height: 38px;
     margin-top: 19%;
     width: 99.5%;
@@ -342,7 +342,7 @@
     flex-direction:column;
     margin-left: 5px;
     /* flex-wrap: wrap; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .ticons1{
@@ -351,7 +351,7 @@
     height:15%;
     margin-top:9%;
     width:99.2%;
-    border:2px solid red;
+    /* border:2px solid red; */
 }
 
 .ticons{
@@ -567,8 +567,9 @@
 
 .remiderListing{
     display:flex;
-    justify-content: center;
-    align-items: flex-start;
+    /* flex-direction:column; */
+    /* justify-content: center;
+    align-items:center; */
     background-color:inherit;
     padding-left:12px;
     color: #202124;
@@ -576,11 +577,39 @@
     font-family: 'Roboto',arial,sans-serif;
     font-size: 17px;
     /* border:1px solid red; */
-    height:22px;
-    width:150px;
+    height:40px;
+    min-width:100px;
     overflow:hidden;
 
 }
+.chip {
+    display: inline-block;
+    /* display:flex;
+    flex-direction:row;
+    justify-content:center; */
+    /* align-items:flex-start; */
+    align-items: center;
+    /* padding: 0 25px; */
+    height: 30px;
+    min-width: 50px;
+    font-size: 17px;
+    overflow: hidden;
+    color: #202124;
+    /* font-weight: bold; */
+    /* line-height: 50px; */
+    border: 1px solid transparent;
+    border-radius: 25px;
+    background-color: #a6a7a8;
+    opacity: 0.5;
+    /* color: white; */
+ }
+
+ #sTime{
+     color:#202124;
+     height:40px;
+     width:40px;
+     /* border: 1px solid green; */
+ }
 
 
 .popup {
@@ -712,9 +741,10 @@
     padding:12px;
     /* border: 1px solid grey; */
 }
-/* .reminderListing{
+.reminderListing{
     border:1px solid red;
-} */
+}
+
 .iconDiv{
     display:flex;
     flex-direction:row;
@@ -731,6 +761,9 @@
 .note:hover .iconDiv{
     visibility: visible;
 }
+
+
+
 
 .dypop{
     display: flex;
@@ -781,6 +814,14 @@
     /* display: none; */
 }
 
+#sh :hover {
+    border : 2px solid red;
+    display: none;
+    
+
+
+}
+
 .shrink-notes, .shrink-reminders, .shrink-labels, .shrink-archive, .shrink-trash{
     display: flex;
     height: 55px;
@@ -803,6 +844,7 @@
     box-shadow: 2px 0px 2px grey;
 
     /* box-shadow:0 1px 7px rgb(128, 128); */
+    /* changed */
     /* border:1px solid grey; */
 
     display:none;
@@ -827,7 +869,7 @@
     height:200px;
     width:100px;
     margin: 1em 1em 1em 1em;
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }
 
 .expand-notes1, .expand-reminders1, .expand-labels1,.expand-archive1, .expand-trash1{
@@ -1047,7 +1089,7 @@
 }
 .owners{
     margin-top:38%;
-    border:2px solid blue;
+    /* border:2px solid blue; */
 }
 
 .ticons{
