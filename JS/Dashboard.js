@@ -29,10 +29,12 @@ window.addEventListener('DOMContentLoaded', function () {
     const Trash1 = document.querySelector("#trash2")
     const Archive1 = document.querySelector("#archive2")
     const Notes2 = document.querySelector("#exnotes")
-    
-    const expandSidebar = document.querySelector('.expand-sidebar')
 
-    const shrinkTrash = document.querySelector("#sds")
+    const expandSidebar = document.querySelector('.expand-sidebar')
+    const shrinkSidebar = document.querySelector('.shrink-sidebar')
+
+    const shrinkTrash = document.querySelector("#sh")
+    const shrinkArchive = document.querySelector("#shrinkArchive")
 
     const collabInput = document.querySelector("#collabInput")
     const Colt = document.querySelector('.colt')
@@ -55,12 +57,38 @@ window.addEventListener('DOMContentLoaded', function () {
     let nts = [];
     // const obj = {...names};
 
-    requirejs(['../service/DataService.js'], (methods) => {
+    function ajaxGet(url) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+                    // console.log(xhr.response, xhr.responseXML);
+                    resolve(xhr.response)
+                }
+            };
+            xhr.open('GET', url, true);
+            xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
+            xhr.setRequestHeader("Content-type", "application/json");
 
-        methods.getNotes().then(function (getResponse) {
-            let Responsee = getResponse.data.data.data;
-            console.log(Responsee);
-            let notesArray = Responsee.filter(data => data.isArchived == false && data.isDeleted == false)
+            xhr.onerror = reject;
+
+            xhr.send()
+
+        });
+    }
+
+    ajaxGet(`http://fundoonotes.incubation.bridgelabz.com/api/notes/getNotesList`)
+        .then(function (result1) {
+            console.log("hello")
+            // console.log(result1)
+            let Res = JSON.parse(result1);
+            //   console.log(Res.data.data);
+            let Response = Res.data.data;
+            console.log(Response)
+
+
+
+            let notesArray = Response.filter(data => data.isArchived == false && data.isDeleted == false)
             nts = notesArray
             // nts = {...notesArray};
             console.log(nts);
@@ -68,81 +96,179 @@ window.addEventListener('DOMContentLoaded', function () {
             console.log(notesArray)
             NotesContainer.innerHTML = notesArray.map((note) =>
                 `<div class ="note" id =${note.id} style="background-color:${note.color}"; > 
-
-                <div class="dypop" id=${note.id}>
-
-                </div>
-
-               
-               <div class ="tDiv" id =${note.id}>
-               <div>${note.title}</div>
-               </div>
-
-               <div class ="dDiv" id =${note.description}>
-               ${note.description}
-               </div>
-
-               <div class= "ownerListing"> ${note.collaborators.map(user => `
-               
-               <i class="material-icons 
-                   small">account_circle</i>
-                   `)}
-               
-               </div>
-
-               <div class="remiderListing"> 
-               ${note.reminder.map(rem =>`
-               <i class="material-icons small">access_time</i>         
-               ${note.reminder}
-               `)}
-               
-               </div>
-
-
-               <div class ="iconDiv" id ="iii">
-               <div class="ex ">
-                    <i class="material-icons">notifications</i>
-                </div>
-
-                <div class="ex ">
-                <i class="material-icons">person_add</i>
-               </div>
-
-                <div class="Icolor" id=${note.id}>
-                 <i class="material-icons" id =${note.id}>color_lens</i>
-               </div>
-
-               <div class="ex ">
-                <i class="material-icons">insert_photo</i>
-                </div>
-
-               <div class="ex" id= "Iarchive">
-                   <i class="material-icons" id =${note.id}>archive</i>
-                </div>
-
-                <div class="ex" id="Itrash">
-                <i class="material-icons" id =${note.id}>delete</i>
-            </div>
-
-            <div class="ex" >
-            <i class="material-icons" id =${note.id}>more_vert</i>
-         </div>
-
-               </div>
               
-            
-     
-
-
+                              <div class="dypop" id=${note.id}>
+              
+                              </div>
+              
+                             
+                             <div class ="tDiv" id =${note.id}>
+                             <div>${note.title}</div>
+                             </div>
+              
+                             <div class ="dDiv" id =${note.description}>
+                             ${note.description}
+                             </div>
+              
+                             <div class= "ownerListing"> ${note.collaborators.map(user => `
+                             
+                             <i class="material-icons 
+                                 small">account_circle</i>
+                                 `)}
+                             
+                             </div>
+              
+                             <div class="remiderListing"> 
+                             ${note.reminder.map(rem => `
+                                 
+                             <div class ="chip">
+                             <i class="material-icons small" id ="sTime">access_time</i>    ${note.reminder}</div>    
+                           
+                             `)}
+                             
+                             </div>
               
               
-               
-               </div>`
+                             <div class ="iconDiv" id ="iii">
+                             <div class="ex ">
+                                  <i class="material-icons">notifications</i>
+                              </div>
+              
+                              <div class="ex ">
+                              <i class="material-icons">person_add</i>
+                             </div>
+              
+                              <div class="Icolor" id=${note.id}>
+                               <i class="material-icons" id =${note.id}>color_lens</i>
+                             </div>
+              
+                             <div class="ex ">
+                              <i class="material-icons">insert_photo</i>
+                              </div>
+              
+                             <div class="ex" id= "Iarchive">
+                                 <i class="material-icons" id =${note.id}>archive</i>
+                              </div>
+              
+                              <div class="ex" id="Itrash">
+                              <i class="material-icons" id =${note.id}>delete</i>
+                          </div>
+              
+                          <div class="ex" >
+                          <i class="material-icons" id =${note.id}>more_vert</i>
+                       </div>
+              
+                             </div>
+                            
+                          
+                   
+              
+              
+                            
+                            
+                             
+                             </div>`
             ).join('');
 
-           
+
         })
-    })
+
+
+
+    //   .catch(function(error) {
+    //     console.log(error)
+    //   // An error occurred
+    // });
+
+
+    // requirejs(['../service/DataService.js'], (methods) => {
+
+    //     methods.getNotes().then(function (getResponse) {
+    //         let Responsee = getResponse.data.data.data;
+    //         console.log(Responsee);
+    //         let notesArray = Responsee.filter(data => data.isArchived == false && data.isDeleted == false)
+    //         nts = notesArray
+    //         // nts = {...notesArray};
+    //         console.log(nts);
+
+    //         console.log(notesArray)
+    //         NotesContainer.innerHTML = notesArray.map((note) =>
+    //             `<div class ="note" id =${note.id} style="background-color:${note.color}"; > 
+
+    //             <div class="dypop" id=${note.id}>
+
+    //             </div>
+
+
+    //            <div class ="tDiv" id =${note.id}>
+    //            <div>${note.title}</div>
+    //            </div>
+
+    //            <div class ="dDiv" id =${note.description}>
+    //            ${note.description}
+    //            </div>
+
+    //            <div class= "ownerListing"> ${note.collaborators.map(user => `
+
+    //            <i class="material-icons 
+    //                small">account_circle</i>
+    //                `)}
+
+    //            </div>
+
+    //            <div class="remiderListing"> 
+    //            ${note.reminder.map(rem =>`
+    //            <i class="material-icons small">access_time</i>         
+    //            ${note.reminder}
+    //            `)}
+
+    //            </div>
+
+
+    //            <div class ="iconDiv" id ="iii">
+    //            <div class="ex ">
+    //                 <i class="material-icons">notifications</i>
+    //             </div>
+
+    //             <div class="ex ">
+    //             <i class="material-icons">person_add</i>
+    //            </div>
+
+    //             <div class="Icolor" id=${note.id}>
+    //              <i class="material-icons" id =${note.id}>color_lens</i>
+    //            </div>
+
+    //            <div class="ex ">
+    //             <i class="material-icons">insert_photo</i>
+    //             </div>
+
+    //            <div class="ex" id= "Iarchive">
+    //                <i class="material-icons" id =${note.id}>archive</i>
+    //             </div>
+
+    //             <div class="ex" id="Itrash">
+    //             <i class="material-icons" id =${note.id}>delete</i>
+    //         </div>
+
+    //         <div class="ex" >
+    //         <i class="material-icons" id =${note.id}>more_vert</i>
+    //      </div>
+
+    //            </div>
+
+
+
+
+
+
+
+
+    //            </div>`
+    //         ).join('');
+
+
+    //     })
+    // })
 
 
 
@@ -177,6 +303,13 @@ window.addEventListener('DOMContentLoaded', function () {
         })
     })
 
+    // $('#sh').hover(function (){
+    //     console.log('hai')
+
+    //     $('#sh').css("background-color", "yellow");
+    // })
+
+
 
 
     Trash1.addEventListener('click', function () {
@@ -187,17 +320,35 @@ window.addEventListener('DOMContentLoaded', function () {
     })
 
 
-//    if(screen.width <400){
-    shrinkTrash.addEventListener('click', function () {
-        console.log('shrin');
-        // expandSidebar.style.display = 'none';
-        // document.querySelector(".keep").innerHTML = "Trash";
-        // requirejs(['../JS/mappingNotes.js'], (mapArray) => {
-        //     mapArray.mapNotes('trash')
-        // })
+    // if (screen.width < 400) {
+    //     expandSidebar.style.display = 'none';
+    //     shrinkSidebar.style.display = 'flex';
+        
+
+
+    // }
+
+    shrinkTrash.addEventListener("mouseover", function(){
+        console.log('hai')
     })
 
-//    }
+    // shrinkTrash.addEventListener('click', function () {
+    //     console.log('shrink');
+
+    //     document.querySelector(".keep").innerHTML = "Trash";
+    //     requirejs(['../JS/mappingNotes.js'], (mapArray) => {
+    //         mapArray.mapNotes('trash')
+    //     })
+    // })
+
+    shrinkArchive.addEventListener('click', function(){
+        document.querySelector(".keep").innerHTML = "Archive";
+        requirejs(['../JS/mappingNotes.js'], (mapArray) => {
+            mapArray.mapNotes('archieve')
+
+        })
+
+    })
 
 
     Archive.addEventListener('click', function () {
@@ -232,28 +383,93 @@ window.addEventListener('DOMContentLoaded', function () {
         }
 
         console.log(obj2)
-        requirejs(['../service/DataService.js'], (methods) => {
+        let arObject = JSON.stringify(obj2);
 
-            console.log('hellothere')
-            console.log(methods)
-            methods.archiveNotes(obj2).then(function (archResponse) {
-                // location.reload();
-                setTimeout( ()=> {
-                    location.reload();
-                },2000)
+        function ajaxPost(url) {
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+                        console.log(xhr.response, xhr.responseXML);
+                        resolve(xhr.response)
+                    }
+                };
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
+                xhr.setRequestHeader("Content-type", "application/json");
 
-                console.log(archResponse)
-                console.log('haithere')
-                archResponset = archResponse.status;
-                // if(archResponset == 200){
-                //     location.reload();
-                // }
-            })
-            // if(archResponset == 200){
-            //     location.reload();
-            // }
+                xhr.onerror = reject;
 
-        });
+                xhr.send(arObject)
+
+            });
+        }
+
+        function ajaxGet(url) {
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+                        // console.log(xhr.response, xhr.responseXML);
+                        resolve(xhr.response)
+                    }
+                };
+                xhr.open('GET', url, true);
+                xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
+                xhr.setRequestHeader("Content-type", "application/json");
+
+                xhr.onerror = reject;
+
+                xhr.send(arObject)
+
+            });
+        }
+
+        ajaxPost(`http://fundoonotes.incubation.bridgelabz.com/api/notes/archiveNotes`)
+            .then(function (result) {
+                console.log("hii")
+                console.log(result);
+
+
+                ajaxGet(`http://fundoonotes.incubation.bridgelabz.com/api/notes/getNotesList`)
+                    .then(function (result1) {
+                        console.log("hello")
+                        // console.log(result1)
+                    })
+
+            }).catch(function (error) {
+                console.log(error)
+                // An error occurred
+            });
+
+
+
+
+
+
+
+        // requirejs(['../service/DataService.js'], (methods) => {
+
+        //     console.log('hellothere')
+        //     console.log(methods)
+        //     methods.archiveNotes(obj2).then(function (archResponse) {
+        //         // location.reload();
+        //         setTimeout( ()=> {
+        //             location.reload();
+        //         },2000)
+
+        //         console.log(archResponse)
+        //         console.log('haithere')
+        //         archResponset = archResponse.status;
+        //         // if(archResponset == 200){
+        //         //     location.reload();
+        //         // }
+        //     })
+        //     // if(archResponset == 200){
+        //     //     location.reload();
+        //     // }
+
+        // });
     })
 
 
@@ -281,9 +497,12 @@ window.addEventListener('DOMContentLoaded', function () {
                 console.log(trashResponse.status)
                 console.log('haithere')
 
-                if(trashResponse.status == 200) {
-                    location.reload();
-                }
+                // if(trashResponse.status == 200) {
+                //     // location.reload();
+                //     setTimeout( ()=> {
+                //                     location.reload();
+                //                 },1500)
+                // }
             })
         });
     })
@@ -312,9 +531,9 @@ window.addEventListener('DOMContentLoaded', function () {
         }
     })
 
-  
 
-    $(document).on('click', '.dypop', function(){
+
+    $(document).on('click', '.dypop', function () {
         // document.getElementById('.note').style.backgroundColor = COLOR
 
         // console.log('pppppppplokjhgfcvh')
@@ -322,15 +541,15 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     $(document).on("click", '.Icolor', function (event) {
-        let a = "#"+event.currentTarget.id+".dypop"
+        let a = "#" + event.currentTarget.id + ".dypop"
         // $(".dypop").show()
         $(a).css("display", "flex")
 
-   
+
         console.log(event.target.id)
         let NOTEID = event.target.id
         console.log(NOTEID)
-        
+
         // document.getElementById(a).getElementsByClassName("dypop")[0].innerHTML = "Goodbye world"
 
         $(a).html(`<div class="chooseColor color1" id="#fff" style="background-color:#fff"> </div>
@@ -347,8 +566,8 @@ window.addEventListener('DOMContentLoaded', function () {
         <div class="chooseColor color12" id="#e8eae" style="background-color:#e8eae"> </div>
         `)
 
-        $(document).on('click', '.chooseColor', function(e) {
-           updateColor = e.currentTarget.id
+        $(document).on('click', '.chooseColor', function (e) {
+            updateColor = e.currentTarget.id
             console.log(e.currentTarget.id)
             console.log(updateColor)
 
@@ -374,7 +593,7 @@ window.addEventListener('DOMContentLoaded', function () {
             });
 
         })
-        })
+    })
 
 
 
@@ -400,11 +619,11 @@ window.addEventListener('DOMContentLoaded', function () {
         NotesContainer.style.marginTop = "20%"
         TakeNote2.style.backgroundColor = "white"
 
-        if (screen.width <400){
-            NotesContainer.style.marginTop ="74%"
+        if (screen.width < 400) {
+            NotesContainer.style.marginTop = "74%"
         }
-        else if(screen.width <800 && screen.width >450){
-            NotesContainer.style.marginTop ="55%"
+        else if (screen.width < 800 && screen.width > 450) {
+            NotesContainer.style.marginTop = "55%"
         }
     })
 
@@ -416,7 +635,7 @@ window.addEventListener('DOMContentLoaded', function () {
     })
 
     saveTime.addEventListener('click', function () {
-        console.log(Time + ' ' + Date) 
+        // console.log(Time + ' ' + Date)
         timePopper.style.display = "none"
         TimeAndDate = Time + ' ' + Date
         console.log(TimeAndDate)
@@ -425,16 +644,19 @@ window.addEventListener('DOMContentLoaded', function () {
 
         // console.log(Time)
     })
-    timepicker.addEventListener('change', function(){
+
+
+    
+    timepicker.addEventListener('change', function () {
         Time = timepicker.value;
         console.log(Time)
     })
-    datepicker.addEventListener('change', function(){
+    datepicker.addEventListener('change', function () {
         Date = datepicker.value;
         console.log(Date)
     })
 
-    
+
 
 
 
@@ -442,12 +664,12 @@ window.addEventListener('DOMContentLoaded', function () {
     Collab.addEventListener('click', function () {
         TakeNote2.style.display = 'none';
         CollabContainer.style.display = "block"
-        NotesContainer.style.marginTop ="22%"
-        if (screen.width <400){
-            NotesContainer.style.marginTop ="80%"
+        NotesContainer.style.marginTop = "22%"
+        if (screen.width < 400) {
+            NotesContainer.style.marginTop = "80%"
         }
-        else if(screen.width <800 && screen.width >450){
-            NotesContainer.style.marginTop ="60%"
+        else if (screen.width < 800 && screen.width > 450) {
+            NotesContainer.style.marginTop = "60%"
         }
     })
 
@@ -535,7 +757,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     // map list of owners
 
                 })
-              
+
 
 
 
@@ -573,7 +795,7 @@ window.addEventListener('DOMContentLoaded', function () {
         console.log(collabArray1);
         console.log(data);
         // document.getElemen
-        
+
 
 
 
@@ -598,14 +820,14 @@ window.addEventListener('DOMContentLoaded', function () {
 
     }
 
-    modalTitle.addEventListener('change', function(event) {
+    modalTitle.addEventListener('change', function (event) {
         console.log('modaltitle change')
         mTitle = modalTitle.value
         console.log(event.currentTarget.id)
         console.log(mTitle)
     })
 
-    modalNotes.addEventListener('change', function() {
+    modalNotes.addEventListener('change', function () {
         console.log('modalnotes change')
         mNotes = modalNotes.value
         console.log(mNotes)
@@ -613,7 +835,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 
- 
+
 
     function openModal(noteEl, modalEl, modalContainerEl) {
 
@@ -659,7 +881,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     // Handle click events using event delegation
-    $(document).on('click', '.tDiv', function(event) {
+    $(document).on('click', '.tDiv', function (event) {
         // const modalContainerEl = document.querySelector('.modal-container');
         //     const modalEl = document.querySelector('.modal');
         //     openModal(event.target, modalEl, modalContainerEl);
@@ -667,69 +889,69 @@ window.addEventListener('DOMContentLoaded', function () {
         let updateId = event.target.id;
         console.log(event.target.id);
         console.log(updateId);
-        
 
-        
+
+
         console.log("haiiikj")
 
         let object = nts.find(note => note.id == event.target.id)
         console.log(object);
         // const modaltitle = document.getElementById('modal-title')
         // modaltitle.value = object.title
-        
+
         document.querySelector('#modal-title').value = object.title
 
-            document.querySelector('#modal-notes').value = object.description
+        document.querySelector('#modal-notes').value = object.description
 
 
-            const modalContainerEl = document.querySelector('.modal-container');
-            const modalEl = document.querySelector('.modal');
-            openModal(event.target, modalEl, modalContainerEl);
+        const modalContainerEl = document.querySelector('.modal-container');
+        const modalEl = document.querySelector('.modal');
+        openModal(event.target, modalEl, modalContainerEl);
 
         // Handle click event on modal background element (close modal)
         if (event.target.classList.contains('modal-container')) {
             event.target.classList.remove('modal-container--open');
         }
 
-        mcloseButton.addEventListener('click', function(){
+        mcloseButton.addEventListener('click', function () {
             console.log('clickedddd')
             modal.style.display = "none"
-            document.querySelector(".modal-container").style.display ="none"
-    
-            let obj7 = 
+            document.querySelector(".modal-container").style.display = "none"
+
+            let obj7 =
             {
                 noteId: updateId,
                 title: mTitle,
                 description: mNotes
             }
-    
+
             console.log(obj7)
-    
-    
-    
+
+
+
             requirejs(['../service/DataService.js'], (methods) => {
-    
+
                 console.log(methods)
                 methods.updateNotes(obj7).then(function (updateResponse) {
                     location.reload();
                     console.log(updateResponse)
                     console.log(updateResponse.status)
-    
-    
+
+
                 })
-    
+
                 methods.getNotes().then(function (getResponse) {
                     let acc = getResponse.data.data.data
                     console.log(acc);
-    
+
                 })
-    
+
             });
-    
+
         })
 
 
-   
+
     })
 
 
