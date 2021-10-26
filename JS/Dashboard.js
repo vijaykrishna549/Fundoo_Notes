@@ -304,17 +304,17 @@ window.addEventListener('DOMContentLoaded', function () {
         })
     })
 
-   
+
     // document.addEventListener('click', function(event){
     //     if(event.target.closest('#takeNote1')){
     //         TakeNote1.style.display = 'none';
     //         TakeNote2.style.display = 'block';
     //     }
-         
+
     //     else{
     //         TakeNote1.style.display = 'block';
     //         TakeNote2.style.display = 'none';
-        
+
     //  }
     //  })
 
@@ -331,7 +331,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // if (screen.width < 400) {
     //     expandSidebar.style.display = 'none';
     //     shrinkSidebar.style.display = 'flex';
-        
+
 
 
     // }
@@ -340,16 +340,16 @@ window.addEventListener('DOMContentLoaded', function () {
     //     console.log('hai')
     // })
 
-    $("#sh").on("hover", function(event) {
-        if(event.type == "mouseenter") {
-            $("#sh").css("background-color", "yellow");
-            console.log('moseEvent')
-        }
-        else if (event.type == "mouseleave") {
-            $("p").css("background-color", "red");
-          
-        }
-      });
+    // $("#sh").on("hover", function(event) {
+    //     if(event.type == "mouseenter") {
+    //         $("#sh").css("background-color", "yellow");
+    //         console.log('moseEvent')
+    //     }
+    //     else if (event.type == "mouseleave") {
+    //         $("p").css("background-color", "red");
+
+    //     }
+    //   });
 
     shrinkTrash.addEventListener('click', function () {
         console.log('shrink');
@@ -360,7 +360,7 @@ window.addEventListener('DOMContentLoaded', function () {
         })
     })
 
-    shrinkArchive.addEventListener('click', function(){
+    shrinkArchive.addEventListener('click', function () {
         document.querySelector(".keep").innerHTML = "Archive";
         requirejs(['../JS/mappingNotes.js'], (mapArray) => {
             mapArray.mapNotes('archieve')
@@ -458,14 +458,14 @@ window.addEventListener('DOMContentLoaded', function () {
                         //   console.log(Res.data.data);
                         let Response2 = Res2.data.data;
                         console.log(Response2)
-            
-            
-            
+
+
+
                         let notesArray2 = Response2.filter(data => data.isArchived == false && data.isDeleted == false)
                         nts2 = notesArray2
                         // nts = {...notesArray};
                         console.log(nts2);
-            
+
                         console.log(notesArray2)
                         NotesContainer.innerHTML = notesArray2.map((note) =>
                             `<div class ="note" id =${note.id} style="background-color:${note.color}"; > 
@@ -624,14 +624,14 @@ window.addEventListener('DOMContentLoaded', function () {
                         //   console.log(Res.data.data);
                         let Response3 = Res3.data.data;
                         console.log(Response3)
-            
-            
-            
+
+
+
                         let notesArray3 = Response3.filter(data => data.isArchived == false && data.isDeleted == false)
                         nts3 = notesArray3
                         // nts = {...notesArray};
                         console.log(nts3);
-            
+
                         console.log(notesArray3)
                         NotesContainer.innerHTML = notesArray3.map((note) =>
                             `<div class ="note" id =${note.id} style="background-color:${note.color}"; > 
@@ -826,7 +826,7 @@ window.addEventListener('DOMContentLoaded', function () {
         TakeNote2.style.backgroundColor = "white"
 
         if (screen.width < 400) {
-            NotesContainer.style.marginTop = "74%"
+            NotesContainer.style.marginTop = "65%"
         }
         else if (screen.width < 800 && screen.width > 450) {
             NotesContainer.style.marginTop = "55%"
@@ -852,7 +852,7 @@ window.addEventListener('DOMContentLoaded', function () {
     })
 
 
-    
+
     timepicker.addEventListener('change', function () {
         Time = timepicker.value;
         console.log(Time)
@@ -873,7 +873,7 @@ window.addEventListener('DOMContentLoaded', function () {
         CollabContainer.style.display = "block"
         NotesContainer.style.marginTop = "25%"
         if (screen.width < 400) {
-            NotesContainer.style.marginTop = "80%"
+            NotesContainer.style.marginTop = "85%"
         }
         else if (screen.width < 800 && screen.width > 450) {
             NotesContainer.style.marginTop = "60%"
@@ -917,6 +917,7 @@ window.addEventListener('DOMContentLoaded', function () {
     })
 
     // let art;
+    let Responsee5;
 
 
 
@@ -937,12 +938,12 @@ window.addEventListener('DOMContentLoaded', function () {
             console.log(methods)
             methods.collabNotes(obj5).then(function (collabResponse) {
                 console.log(collabResponse)
-                let Responsee2 = collabResponse.data.data.details;
+                Responsee5 = collabResponse.data.data.details;
                 // console.log(Responsee2)
 
 
 
-                let resArray = Responsee2.map(function (elemet) {
+                let resArray = Responsee5.map(function (elemet) {
                     return `<div class ="tesdsd"  style="background-color:"; > 
 
                
@@ -956,44 +957,10 @@ window.addEventListener('DOMContentLoaded', function () {
                     <div>`
 
                 }).join(" ");
+                // console.log(resArray)
 
 
                 Colt.innerHTML = resArray;
-                $(document).on('click', '.collabList', function (event) {
-                    let obj6 = Responsee2.find(user => user.email == event.target.id)
-                    console.log(obj6)
-                    collabArray1.push(obj6);
-                    console.log(collabArray1)
-                    console.log(obj6.email)
-
-                    // collabInput.value = obj6.email
-
-                    art = collabArray1.map(function(pop){
-
-                        return `<div class="own">
-            
-                        <div class="col">
-                                <i class="material-icons 
-                                    large">account_circle</i>
-                                    <div class = "owl" id="${pop.email}" > ${pop.email} </div>
-            
-                            </div>
-                    
-                        </div>`
-                        
-                        
-
-                    }).join(' ');
-                    // Colt.style.display = 'none';
-
-
-                    ownerMap.innerHTML = art;
-
-
-                    // map list of owners
-
-                })
-
 
 
 
@@ -1002,6 +969,44 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     })
+
+
+    $(document).on('click', '.collabList', function (event) {
+        let obj6 = Responsee5.find(user => user.email == event.target.id)
+        console.log(obj6)
+        collabArray1.push(obj6);
+        console.log(collabArray1)
+        // console.log(obj6.email)
+
+        collabInput.value = obj6.email
+
+        art = collabArray1.map(function (pop) {
+            console.log(pop)
+
+            return `<div class="own">
+            
+                        <div class="col">
+                                <i class="material-icons " id =""${pop.email}>account_circle</i>
+                                    <div class = "owl" id="${pop.email}" > ${pop.email} </div>
+            
+                            </div>
+                    
+                        </div>`
+
+
+
+        }).join(' ');
+        // Colt.style.display = 'none';
+
+
+        ownerMap.innerHTML = art;
+
+
+        // map list of owners
+
+    })
+
+
 
 
 
