@@ -1,6 +1,6 @@
 .main-container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     position: relative;
     /* border: 2px solid red;  */
@@ -292,6 +292,7 @@
     background-color: inherit;
     /* border:2px solid black; */
     height: 100%;
+    padding-left: 8px;
     width:70%;
 }
 
@@ -317,6 +318,7 @@
 .tnotes1{
     width:98%;
     font-size:1.2vw;
+    padding:8px;
     font-family: Roboto,Arial,sans-serif;
     background-color: inherit;
     /* border: 1px solid blue; */
@@ -351,12 +353,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-left: 2px;
     font-family:Roboto,Arial,sans-serif;
     /* font-size:18px; */
     font-weight: normal;
-    border:1px solid grey;
+    /* margin-top: 1px; */
+    /* border:0.5px solid grey; */
     
 
+}
+
+.owl{
+    padding:7px;
 }
 
 .ticons1{
@@ -453,7 +461,7 @@
     margin-left:30%;
     margin-top:6%;
     display:none;
-    z-index: 1;
+    z-index: 5;
     box-shadow:0 1px 7px rgb(128, 128, 128);
 }
 
@@ -481,10 +489,18 @@
     display:flex;
     flex-direction: column;
     /* border:1px solid green; */
-    min-height: 50px;
+    max-height: 100px;
+
+    /* overflow:scroll; */
+    overflow-y: scroll;
+    scrollbar-width: 0px;
     width: 99%;
     margin-left:1%;
 }
+.container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
 .collab-add{
     display:flex;
     align-items:center;
@@ -579,14 +595,14 @@
 }
 .collabDiv{
     height:23px;
-    border:1px solid grey;
+    /* border:1px solid grey; */
     font-size: 1.2vw;
     font-family: Arial,sans-serif;;
     /* height: 20%; */
 }
 
 .collabDiv:hover {
-    background-color:rgb(208, 211, 212);
+    /* background-color:rgb(208, 211, 212); */
 }
 
 .remiderListing{
@@ -614,8 +630,8 @@
     /* align-items:flex-start; */
     align-items: center;
     /* padding: 0 25px; */
-    height: 30px;
-    min-width: 50px;
+    min-height: 1px;
+    min-width: 10px;
     font-size: 17px;
     overflow: hidden;
     color: #202124;
@@ -623,7 +639,7 @@
     /* line-height: 50px; */
     border: 1px solid transparent;
     border-radius: 25px;
-    background-color: #a6a7a8;
+    background-color: #91979e;
     opacity: 0.5;
     /* color: white; */
  }
@@ -716,7 +732,7 @@
     /* border: 1px solid red; */
     position: absolute;
     margin-top: 11.3%;
-    margin-left: 19%;
+    margin-left: 11%;
     z-index: 0;
     /* z-index: -1; */
     /* overflow:hidden; */
@@ -736,7 +752,7 @@
     display: flex;
     align-items: center;
     height:15px;
-    width: 100%;
+    width: 85%;
     padding:12px;
     font-family: Roboto,Arial,sans-serif;
     
@@ -751,9 +767,9 @@
 
 .dDiv{
     display:flex;
-    align-items: center;
-    height:15px;
-    width: 100%;
+    /* align-items: center; */
+    min-height:15px;
+    width: 85%;
     padding:12px;
     font-size:15px;
     /* border: 1px solid grey; */
@@ -762,19 +778,24 @@
 }
 
 .ownerListing{
-    padding:12px;
+    padding-left:12px;
+    min-height: 1px;
     /* border: 1px solid grey; */
 }
-.reminderListing{
-    border:1px solid red;
-}
+/* .remiderListing{
+    display: flex; */
+    /* display: none; */
+
+    /* min-height: 1px; */
+    /* border:1px solid red; */
+/* } */
 
 .iconDiv{
     display:flex;
     flex-direction:row;
     justify-content: center;
     align-items: center;
-    /* padding:10px; */
+    padding:10px;
     /* height: 40%; */
     height:20px;
     width: 100%;
@@ -1046,7 +1067,9 @@
    .takeNote2{
        margin-top:20%;
        width: 80%;
-       margin-left: 13%;
+       /* border:4px solid black; */
+       margin-left: 11%;
+       z-index: 5;
        display:none;
    }
    .tnotes1{
@@ -1094,7 +1117,7 @@
     flex-direction: row;
     height:35%;
     width:100%;
-    margin-top:20%;
+    /* margin-top:20%; */
     /* border:2px solid red; */
 }
 .close-button{
@@ -1112,7 +1135,7 @@
     /* margin-top: 50%; */
 }
 .owners{
-    margin-top:38%;
+    /* margin-top:38%; */
     /* border:2px solid blue; */
 }
 
@@ -1130,10 +1153,10 @@
     /* height:30%; */
     top: 5%;
     width:85%;
-    height:35%;
+    max-height:35%;
     border:1px solfid grey;
     border-radius: 6px;
-    margin-left:10%;
+    margin-left:13%;
     margin-top:6%;
     display:none;
     box-shadow:0 1px 7px rgb(128, 128, 128);
@@ -1234,7 +1257,7 @@
       /* border:1px solid red; */
   }
   .reminderListing{
-    border:1px solid red;
+    /* border:1px solid red; */
 
    }
 }
@@ -1268,7 +1291,7 @@
    .takeNote2{
        margin-top:20%;
        width: 80%;
-       margin-left: 13%;
+       margin-left: 15%;
        display:none;
    }
    .tnotes1{
