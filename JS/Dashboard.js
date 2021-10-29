@@ -182,94 +182,6 @@ window.addEventListener('DOMContentLoaded', function () {
     // });
 
 
-    // requirejs(['../service/DataService.js'], (methods) => {
-
-    //     methods.getNotes().then(function (getResponse) {
-    //         let Responsee = getResponse.data.data.data;
-    //         console.log(Responsee);
-    //         let notesArray = Responsee.filter(data => data.isArchived == false && data.isDeleted == false)
-    //         nts = notesArray
-    //         // nts = {...notesArray};
-    //         console.log(nts);
-
-    //         console.log(notesArray)
-    //         NotesContainer.innerHTML = notesArray.map((note) =>
-    //             `<div class ="note" id =${note.id} style="background-color:${note.color}"; > 
-
-    //             <div class="dypop" id=${note.id}>
-
-    //             </div>
-
-
-    //            <div class ="tDiv" id =${note.id}>
-    //            <div>${note.title}</div>
-    //            </div>
-
-    //            <div class ="dDiv" id =${note.description}>
-    //            ${note.description}
-    //            </div>
-
-    //            <div class= "ownerListing"> ${note.collaborators.map(user => `
-
-    //            <i class="material-icons 
-    //                small">account_circle</i>
-    //                `)}
-
-    //            </div>
-
-    //            <div class="remiderListing"> 
-    //            ${note.reminder.map(rem =>`
-    //            <i class="material-icons small">access_time</i>         
-    //            ${note.reminder}
-    //            `)}
-
-    //            </div>
-
-
-    //            <div class ="iconDiv" id ="iii">
-    //            <div class="ex ">
-    //                 <i class="material-icons">notifications</i>
-    //             </div>
-
-    //             <div class="ex ">
-    //             <i class="material-icons">person_add</i>
-    //            </div>
-
-    //             <div class="Icolor" id=${note.id}>
-    //              <i class="material-icons" id =${note.id}>color_lens</i>
-    //            </div>
-
-    //            <div class="ex ">
-    //             <i class="material-icons">insert_photo</i>
-    //             </div>
-
-    //            <div class="ex" id= "Iarchive">
-    //                <i class="material-icons" id =${note.id}>archive</i>
-    //             </div>
-
-    //             <div class="ex" id="Itrash">
-    //             <i class="material-icons" id =${note.id}>delete</i>
-    //         </div>
-
-    //         <div class="ex" >
-    //         <i class="material-icons" id =${note.id}>more_vert</i>
-    //      </div>
-
-    //            </div>
-
-
-
-
-
-
-
-
-    //            </div>`
-    //         ).join('');
-
-
-    //     })
-    // })
 
 
 
@@ -328,28 +240,7 @@ window.addEventListener('DOMContentLoaded', function () {
     })
 
 
-    // if (screen.width < 400) {
-    //     expandSidebar.style.display = 'none';
-    //     shrinkSidebar.style.display = 'flex';
-
-
-
-    // }
-
-    // shrinkTrash.addEventListener("mouseover", function(){
-    //     console.log('hai')
-    // })
-
-    // $("#sh").on("hover", function(event) {
-    //     if(event.type == "mouseenter") {
-    //         $("#sh").css("background-color", "yellow");
-    //         console.log('moseEvent')
-    //     }
-    //     else if (event.type == "mouseleave") {
-    //         $("p").css("background-color", "red");
-
-    //     }
-    //   });
+ 
 
     shrinkTrash.addEventListener('click', function () {
         console.log('shrink');
@@ -375,7 +266,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // })
 
-    let archResponset = "";
+    // let archResponset = "";
     // document.querySelector(".profile-img").addEventListener('click', function () {
     //     console.log('profile')
 
@@ -1011,7 +902,12 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
 
-
+    if (localStorage.getItem('token') !== null) {
+        console.log(`token exists`);
+    } else {
+        window.location= 'http://localhost:5502/Pages/Signin.html'
+        console.log(`token not found`);
+    }
 
 
 
@@ -1038,12 +934,47 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
         data.append("color", COLOR);
-        data.append("reminder", TimeAndDate)
+        if(TimeAndDate!== undefined){
+
+            data.append("reminder", TimeAndDate)
+        }
+       
 
         data.append("collaberators", JSON.stringify(collabArray1));
         console.log(collabArray1);
         console.log(data);
         // document.getElemen
+
+        // let gh = JSON.stringify(data);
+        // console.log(gh);
+
+        // function notePost(url) {
+        //     return new Promise(function (resolve, reject) {
+        //         var xhr = new XMLHttpRequest();
+        //         xhr.onreadystatechange = function () {
+        //             if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+        //                 // console.log(xhr.response, xhr.responseXML);
+        //                 resolve(xhr.response)
+        //             }
+        //         };
+        //         xhr.open('POST', url, true);
+        //         xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
+        //         xhr.setRequestHeader("Content-type", "application/json");
+
+        //         xhr.onerror = reject;
+
+        //         xhr.send(gh)
+
+        //     });
+        // }
+
+        // notePost(`http://fundoonotes.incubation.bridgelabz.com/api/notes/addNotes`)
+        // .then(function (result1) {
+        //     console.log("hello")
+        //     console.log(result1)
+        // })
+
+
 
 
 
